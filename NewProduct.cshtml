@@ -1,0 +1,37 @@
+﻿@model EntityFrameworkModelUygulamasi.Models.EntityFramework.Products
+@{
+    ViewBag.Title = "NewProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*Html helpersız aşağıdaki gibi yapılıyor. Html helper ile yapılmak istenirse beginform,textboxfor vs.kullanarak yapmalıyız.*@
+
+@*<form method="post">
+        <div class="form-group">
+            <label>Ürün Adı</label>
+            <input type="text" name="ProductName" class="form-control" />
+            <label>Ürün Fiyatı</label>
+            <input type="text" name="UnitPrice" class="form-control" />
+            <label>Ürün Stoğu</label>
+            <input type="number" name="UnitsInStock" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Ekle</button>
+
+    </form>*@
+
+@using (Html.BeginForm("NewProduct", "Product", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(p => p.ProductName)
+    @Html.TextBoxFor(p => p.ProductName, new { @class = "form-control" })
+    @Html.LabelFor(p => p.UnitPrice)
+    @Html.TextBoxFor(p => p.UnitPrice, new { @class = "form-control" })
+    @Html.LabelFor(p => p.UnitsInStock)
+    @Html.TextBoxFor(p => p.UnitsInStock, new { @class = "form-control" })
+</div>
+
+    <button type="submit" class="btn btn-success">Ekle</button>
+}
+
+

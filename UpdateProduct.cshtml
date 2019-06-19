@@ -1,0 +1,20 @@
+﻿@model EntityFrameworkModelUygulamasi.Models.EntityFramework.Products
+@{
+    ViewBag.Title = "UpdateProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.ProductName)
+        @Html.TextBoxFor(p => p.ProductName, new { @class = "form-control" })
+        @Html.LabelFor(p => p.UnitPrice)
+        @Html.TextBoxFor(p => p.UnitPrice, new { @class = "form-control" })
+        @Html.LabelFor(p => p.UnitsInStock)
+        @Html.TextBoxFor(p => p.UnitsInStock, new { @class = "form-control" })        
+    </div>
+    @Html.HiddenFor(p=>p.ProductID)
+    <button type="submit" class="btn btn-success">Güncelle</button>
+}
+

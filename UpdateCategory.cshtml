@@ -1,0 +1,21 @@
+﻿@model EntityFrameworkModelUygulamasi.Models.EntityFramework.Categories
+
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.CategoryName)
+        @Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control" })
+        @Html.LabelFor(c => c.Description)
+        @Html.TextBoxFor(c => c.Description, new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(c => c.CategoryID)
+    <button type="submit" class="btn btn-success">Güncelle</button>
+}
+
+

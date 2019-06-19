@@ -1,0 +1,33 @@
+﻿@using EntityFrameworkModelUygulamasi.Models.EntityFramework
+@model List<Categories>
+@{
+    ViewBag.Title = "IndexCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a class="btn btn-success" href="/Category/NewCategory">Yeni Kategori Ekle</a>
+
+<h2>Kategori Listesi</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kategori Id</th>
+            <th>Kategori Adı</th>
+            <th>Kategori Açıklaması</th>
+            <th colspan="2">Değişiklikler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kategori in Model)
+        {
+        <tr>
+            <td>@kategori.CategoryID</td>
+            <td>@kategori.CategoryName</td>
+            <td>@kategori.Description</td>
+            <td><a class="btn btn-primary" href="/Category/Guncelle/@kategori.CategoryID">Güncelle</a></td>
+            <td><a class="btn btn-primary" href="/Category/Sil/@kategori.CategoryID">Sil</a></td>
+        </tr>
+        }
+    </tbody>
+</table>

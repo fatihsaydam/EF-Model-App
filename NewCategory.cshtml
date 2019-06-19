@@ -1,0 +1,35 @@
+﻿@model EntityFrameworkModelUygulamasi.Models.EntityFramework.Categories
+
+@{
+    /**/
+
+    ViewBag.Title = "NewCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*Html helpersız aşağıdaki gibi yapılıyor. Html helper ile yapılmak istenirse beginform,textboxfor vs.kullanarak yapmalıyız.*@
+
+@*<form method="post">
+        <div class="form-group">
+            <label>Kategori Adı</label>
+            <input type="text" name="CategoryName" class="form-control" />
+            <label>Kategori Açıklaması</label>
+            <input type="text" name="Description" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Ekle</button>
+
+    </form>*@
+
+@using (Html.BeginForm("NewCategory", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.CategoryName)
+        @Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control" })
+        @Html.LabelFor(c => c.Description)
+        @Html.TextBoxFor(c => c.Description, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Ekle</button>
+}
+

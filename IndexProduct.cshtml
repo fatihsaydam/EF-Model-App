@@ -1,0 +1,40 @@
+﻿@using EntityFrameworkModelUygulamasi.Models.EntityFramework
+
+@model List<Products>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a class="btn btn-success" href="/Product/NewProduct">Yeni Ürün Ekle</a>
+
+<h2>Ürün Listesi</h2>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Ürün Id</th>
+            <th>Ürün Adı</th>
+            <th>Ürün Fiyatı</th>
+            <th>Ürün Stoğu</th>
+            <th colspan="2">Değişiklikler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var urun in Model)
+        {
+            <tr>
+                <td>@urun.ProductID</td>
+                <td>@urun.ProductName</td>
+                <td>@urun.UnitPrice</td>
+                <td>@urun.UnitsInStock</td>
+                <td><a class="btn btn-primary" href="/Product/Guncelle/@urun.ProductID">Güncelle</a></td>
+                <td><a class="btn btn-primary" href="/Product/Sil/@urun.ProductID">Sil</a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
